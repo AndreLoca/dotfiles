@@ -1,0 +1,43 @@
+configuration {
+	show-icons:      true;
+    display-drun: "  ";
+}
+
+
+* {
+    background-color:      #FADDAF;
+    text-color:            #472C25;
+    border-color:          #472C25;
+    font:                  "Ubuntu Mono Nerd Font 13";
+}
+
+window {
+    y-offset:       2.5%;
+    x-offset:       0.2%;
+    location:       north west;
+    width:          25%;
+    padding:        5px;
+    border:         2px;
+    border-color:   #472C25;
+    children:       [ horibox ];
+}
+
+horibox {
+    orientation: vertical;
+    children:   [ inputbar, listview ];
+}
+
+
+listview {
+    layout:         vertical;
+    spacing:        5px;
+    lines:          10;
+}
+
+element {
+    padding: 2px 2px;
+}
+element selected {
+    background-color: #472C25;
+    text-color: #FADDAF;
+}
