@@ -25,36 +25,39 @@ colors = [
 
 keys = [
     ## Window 
-    Key([mod], "Left",                 lazy.layout.down()),
-    Key([mod], "Right",                 lazy.layout.up()),
-    Key([mod], "Up",                 lazy.layout.left()),
-    Key([mod], "Down",                 lazy.layout.right()),   
-    Key([mod, "shift"], "space",    lazy.layout.rotate()),
-    Key([mod, "shift"], "Return",   lazy.layout.toggle_split(),),
-    Key([mod], "q",                 lazy.window.kill()),
+    Key([mod],  "Left",             lazy.layout.down()),
+    Key([mod],  "Right",            lazy.layout.up()),
+    Key([mod],  "Up",               lazy.layout.left()),
+    Key([mod],  "Down",             lazy.layout.right()),   
+    Key([mod,   "shift"], "space",  lazy.layout.rotate()),
+    Key([mod,   "shift"], "Return", lazy.layout.toggle_split(),),
+    Key([mod],  "q",                lazy.window.kill()),
 
-    Key([mod], "Left", lazy.layout.left()),
-    Key([mod], "Right", lazy.layout.right()),
-    Key([mod], "Up", lazy.layout.down()),
-    Key([mod], "Down", lazy.layout.up()),
-    Key([mod, "shift"], "Left", lazy.layout.swap_left()),
-    Key([mod, "shift"], "Right", lazy.layout.swap_right()),
-    Key([mod, "shift"], "Up", lazy.layout.shuffle_up()),
-    Key([mod, "shift"], "Down", lazy.layout.shuffle_down()),
+    Key([mod],  "Left",     lazy.layout.left()),
+    Key([mod],  "Right",    lazy.layout.right()),
+    Key([mod],  "Up",       lazy.layout.down()),
+    Key([mod],  "Down",     lazy.layout.up()),
+    Key([mod,   "shift"],   "Left", lazy.layout.swap_left()),
+    Key([mod,   "shift"],   "Right", lazy.layout.swap_right()),
+    Key([mod,   "shift"],   "Up", lazy.layout.shuffle_up()),
+    Key([mod,   "shift"],   "Down", lazy.layout.shuffle_down()),
     
-    Key([mod, "control"], "Left", lazy.layout.grow()),
-    Key([mod, "control"], "Up", lazy.layout.normalize()),
-    Key([mod, "control"], "Right", lazy.layout.shrink()),
-    Key([mod, "control"], "Down", lazy.layout.maximize()),
-    Key([mod, "shift"], "space", lazy.layout.flip()),
+    Key([mod,   "control"], "Left", lazy.layout.grow()),
+    Key([mod,   "control"], "Up", lazy.layout.normalize()),
+    Key([mod,   "control"], "Right", lazy.layout.shrink()),
+    Key([mod,   "control"], "Down", lazy.layout.maximize()),
+    Key([mod,   "shift"],   "space", lazy.layout.flip()),
     
     # Menu launcher
-    Key([mod], "r",                 lazy.spawn("rofi -show drun")),
+    Key([mod], "r",             lazy.spawn("rofi -show drun")),
+
+    # Change keyboard layout
+    Key([mod], "space",         lazy.spawn(expanduser("~/.config/myscript/kbdtoggle.sh"))),
     
-    Key([mod], "Return",            lazy.spawn(terminal)),
-    Key([mod], "Tab",               lazy.next_layout()),
-    Key([mod, "control"], "r",      lazy.restart()),
-    Key([mod, "control"], "q",      lazy.shutdown()),
+    Key([mod], "Return",        lazy.spawn(terminal)),
+    Key([mod], "Tab",           lazy.next_layout()),
+    Key([mod, "control"], "r",  lazy.restart()),
+    Key([mod, "control"], "q",  lazy.shutdown()),
 ]
 
 groups = [
@@ -136,7 +139,8 @@ screens = [
                 widget.KeyboardLayout(
                     background = colors[0],
                     foreground = colors[2],
-                    configured_keyboard = ['us','it']
+                    configured_keyboard = ['it','us'],
+
                 ),
                 #widget.Battery(
                 #    background = colors[0],
